@@ -65,3 +65,12 @@ merge['new_lesion'] = merge.apply(lambda row: lesion_map[row['lesion']], axis=1)
 session_url_template = 'https://cnda.wustl.edu/data/projects/CONDR_METS/subjects/{}/experiments/{}'
 merge['session_uri'] = merge.apply(lambda row: session_url_template.format(row['subject'], row['session']), axis=1)
 merge['t1_hi_scans'] = merge.apply(lambda row: find_t1_his(row['session_uri']), axis=1)
+
+
+not_merged = pd.DataFrame(temp)
+not_merged['new_subject'] = not_merged.apply(lambda row: subj_map.get(row['subject'], ''), axis=1)
+not_merged['new_session'] = not_merged.apply(lambda row: sess_map.get(row['session'], ''), axis=1)
+not_merged['new_gk_session'] = not_merged.apply(lambda row: sess_map.get(row['gk_session'], '') if row['gk_session'] != 'preop' else sess_map.get(row['session'], ''), axis=1)
+not_merged = not_merged[not_merged.new_subject != '']
+not_merged = not_merged[not_merged.new_session != '']
+not_merged = not_merged[not_merged.new_gk_session != '']
