@@ -1,6 +1,25 @@
 # Pyradiomics on CONDR_METS Lesion Data
 
-## 2018-01-23
+## 2018-01-23 Part 2
+
+Again I spent almost the whole day downloading data, cleaning it up, and uploading it. But I did finally get that all working. It is now almost 7:00 pm, and I have been working for almost 10 hours.
+
+Luckily for me, the rest of the stuff has been a breeze. The script to get the label value out of the mask file took almost no time to write. I am cruising through the wrapper script, which I will put into the wrapper image for which I already have a Dockerfile started. Once I get the image up and tested, it should not take long to get a command written and working.
+
+Ok, image is up. I can run it by hand.
+
+    docker run -v /data/xnat/archive/foo/arc001/S001_E01:/data -v ${HOME}/temp:/output --entrypoint "" xnat/pyradiomics-wrapper:beta run.sh
+
+It needs:
+
+* A session mounted to /data
+* An output mounted to /output
+* Entrypoint override (which is default now, but I think will soon be not default)
+* The command is just "run.sh" with no parameters or anything
+
+✅ Command is done.
+
+## 2018-01-23 Part 1
 
 What I need to do today: get a command written that can run pyradiomics (or an image I make to run pyradiomics with a wrapper script). I spent the entire day yesterday working on cleaning up the CSV from Misha, then writing a script to download the data from CONDR_METS. It didn't seem like a big task in the morning, but it just kept going on and on all day. I feel like I'm kinda close to getting everything to download properly, but not necessarily to getting it uploaded. Which means I don't know exactly how my "clean" sessions will look. Which means I don't know exactly how my command + wrapper to run pyradiomics (or the wrapper script I may need to write around it) will look.\
 
