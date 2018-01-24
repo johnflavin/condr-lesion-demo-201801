@@ -1,5 +1,13 @@
 # Pyradiomics on CONDR_METS Lesion Data
 
+## 2018-01-24
+
+Crunch time. Need to write a script and make some slides. Also walk through demo to make sure it works.
+
+...
+
+Done with the talk. No one cared. When Dan was done with his section at the beginning he had lots of questions. When I was done, 🦗. So I'm glad I put in so much work for this. More seriously, though, I am glad I didn't have to go to DC to give this talk (which Dan said yesterday that, if he had known it was an internal NCI group he and I would have just gone out there. ☠️)
+
 ## 2018-01-23 Part 2
 
 Again I spent almost the whole day downloading data, cleaning it up, and uploading it. But I did finally get that all working. It is now almost 7:00 pm, and I have been working for almost 10 hours.
